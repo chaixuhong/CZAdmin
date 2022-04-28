@@ -1,8 +1,8 @@
-# 命令
+# CZAdmin后台管理api
 
-- `npm start` 启动开发模式
+## 项目结构
 
-- `npm run build` 打包
-- `npm run lint` 静态代码检查
-- `npm run svgo` 压缩 svg 文件
-- `npm run new` 创建模板
+- **cz-common** ：基础工具组件 
+- **cz-genertor**：代码生成组件
+- **cz-logger**：日志组件
+- **cz-system**：主控制器组件
