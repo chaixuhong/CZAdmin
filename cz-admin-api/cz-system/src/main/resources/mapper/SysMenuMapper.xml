@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cz.mapper.SysMenuMapper">
+
+    <select id="findPermissionByUserId" resultType="java.lang.String">
+        select sm.permission permission from sys_menu  sm INNER JOIN sys_roles_menus  srm on sm.menu_id = srm.menu_id and sm.permission is not null INNER JOIN sys_users_roles srr on srr.role_id = srm.role_id
+        where srr.user_id=#{userId}
+    </select>
+
+    <select id="getMenusByUserId" resultType="com.cz.entity.SysMenu">
+        select sm.* from sys_menu sm INNER JOIN sys_roles_menus srm on sm.menu_id = srm.menu_id
+        INNER JOIN sys_users_roles sur on sur.role_id = srm.role_id where  sur.user_id = #{userId} and sm.menu_type &lt; 2
+        order by sm.menu_sort asc
+    </select>
+</mapper>

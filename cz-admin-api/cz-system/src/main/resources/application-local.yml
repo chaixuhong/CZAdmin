@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/czadmin?useUnicode=true&autoReconnect=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  redis:
+    database: 1
+    host: 10.65.24.181
+    port: 6379
+    timeout: 6000ms
+    password: hkredis
+    jedis:
+      pool:
+        max-idle: 8
+        max-active: 9000
+        max-wait: 6000ms
+        min-idle: 1
+
+# mybatis
+mybatis-plus:
+  typeAliasesPackage: com.chai.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# swagger
+swagger:
+  enable: true
+# 文件存储路径
+file:
+  mac:
+    path: /Users/chaixuhong/personal/outerProject/czadmin/file/
+    avatar: /Users/chaixuhong/personal/outerProject/czadmin/avatar/
+  linux:
+    path: /home/czadmin/file/
+    avatar: /home/czadmin/avatar/
+  windows:
+    path: C:\czadmin\file\
+    avatar: C:\czadmin\avatar\
+  # 文件大小 /M
+  maxSize: 100
+  avatarMaxSize: 5
