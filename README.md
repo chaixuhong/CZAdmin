@@ -83,7 +83,7 @@
 
   - 后端: `@PreAuthorize("hasAuthority('user:add')") //user:add 权限标识`
   - 前端有两种：
-    - `v-permission*="['user:add']"` 控制Dom的显示
+    - `v-permission="['user:add']"` 控制Dom的显示
     - `v-if="checkPer(['user:send'])"` 控制如Element-UI的table的整个列是否渲染
 
 - **数据权限**：
