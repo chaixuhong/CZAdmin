@@ -611,19 +611,19 @@ CREATE TABLE `sys_user` (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `dept_id` int(11) DEFAULT NULL COMMENT '部门id',
   `job_id` int(11) DEFAULT NULL COMMENT '岗位id',
-  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用户名',
-  `nick_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '昵称',
-  `gender` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '性别',
-  `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '手机号码',
-  `email` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '邮箱',
-  `avatar_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '头像地址',
-  `avatar_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '头像磁盘路径',
-  `password` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '密码',
+  `username` varchar(20)  DEFAULT NULL COMMENT '用户名',
+  `nick_name` varchar(20)  DEFAULT NULL COMMENT '昵称',
+  `gender` varchar(2)  DEFAULT NULL COMMENT '性别',
+  `phone` varchar(11)  DEFAULT NULL COMMENT '手机号码',
+  `email` varchar(40)  DEFAULT NULL COMMENT '邮箱',
+  `avatar_name` varchar(255)  DEFAULT NULL COMMENT '头像地址',
+  `avatar_path` varchar(255)  DEFAULT NULL COMMENT '头像磁盘路径',
+  `password` varchar(64)  DEFAULT NULL COMMENT '密码',
   `is_admin` tinyint(1) DEFAULT '0' COMMENT '是否超管',
   `enabled` tinyint(1) DEFAULT '1' COMMENT '是否启用',
   `pwd_reset_time` datetime DEFAULT NULL COMMENT '修改密码的时间',
-  `create_by` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '创建操作人',
-  `update_by` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '更新操作人',
+  `create_by` varchar(50)  DEFAULT NULL COMMENT '创建操作人',
+  `update_by` varchar(50)  DEFAULT NULL COMMENT '更新操作人',
   `create_time` datetime DEFAULT NULL COMMENT '创建日期',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`user_id`) USING BTREE,
@@ -662,6 +662,6 @@ COMMIT;
 -- View structure for tables_info
 -- ----------------------------
 DROP VIEW IF EXISTS `tables_info`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `tables_info` AS select `tables`.`TABLE_NAME` AS `table_name`,`tables`.`CREATE_TIME` AS `create_time`,`tables`.`ENGINE` AS `engine`,`tables`.`TABLE_COLLATION` AS `coding`,`tables`.`TABLE_COMMENT` AS `remark` from `information_schema`.`TABLES` where ((`tables`.`TABLE_SCHEMA` = (select database())) and (`tables`.`TABLE_TYPE` = 'BASE TABLE'));
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `tables_info` AS select `tables`.`TABLE_NAME` AS `table_name`,`tables`.`CREATE_TIME` AS `create_time`,`tables`.`ENGINE` AS `engine`,`tables`.`TABLE_COLLATION` AS `coding`,`tables`.`TABLE_COMMENT` AS `remark` from `information_schema`.`TABLES` tables where ((`tables`.`TABLE_SCHEMA` = (select database())) and (`tables`.`TABLE_TYPE` = 'BASE TABLE'));
 
 SET FOREIGN_KEY_CHECKS = 1;
